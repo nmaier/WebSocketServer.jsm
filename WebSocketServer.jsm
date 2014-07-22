@@ -554,7 +554,6 @@ function WebSocketServer(port, bindAll) {
       this.socket.close();
     },
     onclient: function(client) {
-      console.log("onclient", this.onclient);
       this.onclient && this.onclient(client);
     }.bind(this)
   };
