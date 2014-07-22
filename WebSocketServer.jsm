@@ -155,7 +155,7 @@ InMessage.prototype = Object.freeze({
     return !this.remainder;
   },
   toUserMessage: function() {
-    if (this.op ==  opcodes.text_frame) {
+    if (this.op == opcodes.text_frame) {
       let d = new TextDecoder("utf-8");
       let rv = d.decode(this.buffer.data);
       delete this.buffer;
@@ -409,7 +409,7 @@ WebSocketConnection.prototype = Object.seal({
       throw new Error("Connection is not alive!");
     }
     let op = opcodes.binary_frame;
-    if (data.charCodeAt) {
+    if (data.charCodeAt) {
       let e = new TextEncoder("utf-8");
       data = e.encode(data);
       op = opcodes.text_frame;
@@ -475,7 +475,7 @@ WebSocketConnection.prototype = Object.seal({
     catch (ex if (ex.result || ex) === Cr.NS_ERROR_NET_RESET) {
       this.terminate();
     }
-    catch (ex if (ex.result || ex) === Cr.NS_BASE_STREAM_WOULD_BLOCK) {
+    catch (ex if (ex.result || ex) === Cr.NS_BASE_STREAM_WOULD_BLOCK) {
       stream.asyncWait(this, 0, this.outbuffer.length, MainThread);
     }
     catch (ex) {
@@ -519,7 +519,7 @@ WebSocketConnection.prototype = Object.seal({
     }
   },
   terminate: function() {
-    if (!(this.state & state.closed)) {
+    if (!(this.state & state.closed)) {
       this.state = state.closed;
       this.instream.close();
       this.outstream.close();
