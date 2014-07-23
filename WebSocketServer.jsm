@@ -12,7 +12,7 @@ var BUFFER_STEP = 4096;
 var {classes: Cc,
      interfaces: Ci,
      utils: Cu,
-     results: cr,
+     results: Cr,
      Constructor: CC} = Components;
 
 Cu.import("resource://gre/modules/Services.jsm");
